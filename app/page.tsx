@@ -50,7 +50,7 @@ export default function Home() {
       return;
     }
 
-    localStorage.setItem(`qdt_player_${code}`, player.id);
+    localStorage.setItem(`qdt_player_${code}`, (player as any).id);
     router.push(`/room/${code}`);
   };
 
@@ -88,7 +88,7 @@ export default function Home() {
       return;
     }
 
-    localStorage.setItem(`qdt_player_${upperCode}`, player.id);
+    localStorage.setItem(`qdt_player_${upperCode}`, (player as any).id);
     router.push(`/room/${upperCode}`);
   };
 
