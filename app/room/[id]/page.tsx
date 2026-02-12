@@ -396,9 +396,9 @@ export default function RoomPage() {
                 {gameState.status === 'end' && (
                     <motion.div
                         key="end"
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        className="glass"
+                        initial={{ opacity: 0, scale: 0.9 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        className={`glass ${gameState.result === 'lose' ? 'defeat-alert' : ''}`}
                         style={{
                             padding: '3rem',
                             textAlign: 'center',
@@ -406,7 +406,7 @@ export default function RoomPage() {
                             flexDirection: 'column',
                             alignItems: 'center',
                             gap: '2rem',
-                            border: gameState.result === 'win' ? '4px solid var(--success)' : '4px solid var(--danger)'
+                            borderWidth: '4px'
                         }}
                     >
                         {gameState.result === 'win' ? (
