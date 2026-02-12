@@ -75,7 +75,7 @@ export default function RoomPage() {
         const roomSub = supabase
             .channel(`room:${roomCode}`)
             .on('postgres_changes', { event: '*', schema: 'public', table: 'qdt_rooms', filter: `id=eq.${roomCode}` }, (payload) => {
-                setGameState(payload.new.game_state);
+                setGameState((payload.new as any).game_state);
             })
             .on('postgres_changes', { event: '*', schema: 'public', table: 'qdt_players', filter: `room_id=eq.${roomCode}` }, () => {
                 supabase.from('qdt_players').select('*').eq('room_id', roomCode).then(({ data }) => setPlayers(data || []));
