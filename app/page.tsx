@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { supabase } from '@/lib/supabase';
 import { motion } from 'framer-motion';
-import { Users, Plus, Play, Info } from 'lucide-react';
+import { Users, Plus, Play, Info, LayoutGrid } from 'lucide-react';
 import RulesModal from '@/components/ui/RulesModal';
 
 export default function Home() {
@@ -94,6 +94,17 @@ export default function Home() {
 
   return (
     <div className="container" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', minHeight: '90vh' }}>
+      {/* Home Button */}
+      <div style={{ position: 'fixed', top: '2rem', left: '2rem', zIndex: 100 }}>
+        <button
+          onClick={() => window.location.href = 'https://games-platform-hub.vercel.app/'}
+          className="glass-btn hover-scale"
+          style={{ padding: '0.75rem', borderRadius: '50%', background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)' }}
+          title="Retour au menu"
+        >
+          <LayoutGrid size={20} style={{ color: 'rgba(255,255,255,0.6)' }} />
+        </button>
+      </div>
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
